@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
+import { Suspense } from "react";
+
+
+
 const pages = [
   { name: "Home", path: "/", icon: "/home.png" },
   { name: "Wallet", path: "/wallet", icon: "/empty-wallet.svg" },
@@ -42,7 +46,8 @@ export default function Sidebar() {
 
 
   return (
-    <aside className="w-[306px]  min-h-screen bg-[#FFFFFF] shadow-lg pt-2.5 px-7 pb-5 ">
+    <Suspense fallback={<div>Loading...</div>}>
+      <aside className="w-[306px]  min-h-screen bg-[#FFFFFF] shadow-lg pt-2.5 px-7 pb-5 ">
       <nav className="flex flex-col ">
         {pages.map((page) => (
           <div key={page.name}>
@@ -99,5 +104,6 @@ export default function Sidebar() {
         ))}
       </nav>
     </aside>
+    </Suspense>
   );
 }
