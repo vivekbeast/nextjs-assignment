@@ -8,7 +8,7 @@ import OrderDescription from './bidDetails/OrderDescription';
 import Image from 'next/image';
 import { Suspense } from "react";
 
-export default function BidPage() {
+function BidPageContent() {
   const searchParams = useSearchParams();
   const router  = useRouter();
   const name = searchParams.get('name');
@@ -94,7 +94,6 @@ export default function BidPage() {
       };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <div className='w-[1074px] h-auto flex flex-col overflow-hidden'>
       <div className='flex flex-row gap-5 overflow-hidden'>
         <div className='w-[704px] h-[766px] overflow-auto border-[1px] border-[#E3E3E3] bg-[#FFFFFF] rounded-[20px]'>
@@ -192,6 +191,12 @@ export default function BidPage() {
         </div>
       </div>
     </div>
+  );
+}
+export default function BidPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BidPageContent />
     </Suspense>
   );
 }
