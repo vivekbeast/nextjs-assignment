@@ -5,6 +5,8 @@ import { Heart } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import { Suspense } from "react";
+
 
 export default function Page() {
   const router = useRouter();
@@ -34,7 +36,8 @@ export default function Page() {
 
 
   return (
-    <div className='w-[1074px] h-auto flex flex-col overflow-hidden'>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className='w-[1074px] h-auto flex flex-col overflow-hidden'>
       <div className='pb-[20px] w-[148px] h-[78] pt-[20px]'>
         <Image src="/auctionStyle.svg" alt='no' width={150} height={80} className="" />
       </div>
@@ -127,5 +130,6 @@ export default function Page() {
       </div>
     </div>
     </div>
+    </Suspense>
   );
 }
