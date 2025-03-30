@@ -53,7 +53,7 @@ export default function Page() {
 
   return (
     <div className='w-[1074px] h-auto flex flex-col overflow-hidden'>
-      <div className='pb-[20px] w-[148px] h-[78] pt-[20px]'>
+      <div className='pb-[20px] w-[150px] h-[80px] '>
         <Image src="/homeStyle.svg" alt='no'  width={150} height={80} className="" />
       </div>
       <div className='flex flex-row gap-5 overflow-hidden'>
